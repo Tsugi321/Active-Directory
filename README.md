@@ -22,7 +22,7 @@ The Detection Lab project aimed to establish a controlled environment for simula
 4. Set up a NAT Network with planned IP address and connect all VMs to that network
 5. configure splunk server to the designated ip address
 6. Set up splunk using a shared directory
-7. 
+7. Configure target vm by install splunk universal fowarder and sysmon
 
 
 <img width="959" height="806" alt="image" src="https://github.com/user-attachments/assets/a0d74d37-8f99-4832-8366-f472c7ccc0f9" />
