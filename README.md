@@ -18,6 +18,7 @@ The Detection Lab project aimed to establish a controlled environment for simula
 1. Create a Network Diagram to plan out the structure of the lab environment
 
 <img width="959" height="806" alt="image" src="https://github.com/user-attachments/assets/a0d74d37-8f99-4832-8366-f472c7ccc0f9" />
+
 2. Download and install all necessary VM Systems
 
    2.5. Sudo apt-get update && Sudo apt-get upgrade -y on ubuntu server
