@@ -30,7 +30,3 @@ The Detection Lab project aimed to establish a controlled environment for simula
 9. configure kali linux using the set ip address and install crowbar
 10. enabe rdp on the target vm
 11. 
-
-
-
-*Ref 1: Network Diagram*
