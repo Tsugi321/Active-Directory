@@ -69,13 +69,33 @@ The Detection Lab project aimed to establish a controlled environment for simula
 16. activate splunk server by adding a new port (9997) to configure receiving setting
 
 
-17. Create  user accounts though windows server under organisational units
+17. install Active Directory Domain Services(ADDS) on the windows server
+(Manage > Add roles and features > install Role-based or feature-based > Target server > select ADDS and add features > Install)
 
+18. Promote server to domain controller
+ (Add a new forest > add *domain name* > choose password > install)
 
-18. configure kali linux using the set ip address and install crowbar
+19. Create organisational units and add users
+(tools > active directory users and computers > right click the domain > new > organisational unit > add name > within the organisational unit rightclick > new > user > add name > add password)
 
+20. Cahnge DNS server on target PC
+(Rightclick network icon > open network & internet settings > change adapter options > rightclick internet connection > properties > double click ipv4 > change prefered DNS server to domain controller)
 
-19. enabe rdp on the target vm
+21. Join target pc to the domain
+(search pc > rightclick ThisPC > properties > advanced system settings > computer name > change > domain > *domain name* > login with administrator login)
 
+22. Restart target vm and log into newly made user
 
-20. 
+23. configure kali linux using the set ip address 
+(rightclick network icon > edit connections > select first profile > select cog icon > select ipv4 settings > change method to manual > add planned ip address > dns server 8.8.8.8 > save > disconect the internet > connect back to the same internet)
+
+24. update kali, make new directory and install crowbar
+(Open terminal on the desktop > sudo apt-get update && sudo apt-get upgrade -y > mkdir ad-project > sudo apt-get install -y crowbar
+
+25. access rockyou wordlist and move it to the new directory
+(cd /usr/share/wordlists/ > sudo gunzip rockyou.txt.gz > cp rockyou.txt ~/Desktop/*directory name* > cd ~/Desktop/*directory name*)
+
+26. Copy the first 20 lines into a new file and add the targeted password into the new file
+("head -n 20 rockyou.txt > passwords.txt" > nano passwords.txt > add target password)
+
+27. 
