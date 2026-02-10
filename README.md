@@ -98,4 +98,7 @@ The Detection Lab project aimed to establish a controlled environment for simula
 26. Copy the first 20 lines into a new file and add the targeted password into the new file
 ("head -n 20 rockyou.txt > passwords.txt" > nano passwords.txt > add target password)
 
-27. 
+27. On the target pc, enable Remote Desktop Protocol
+(search this pc > click properties > select advanced system settings > log in using ADministrator account > select remote tab > sellect allow remote connections to this computer > select users > add > add users > apply changes)
+
+28. 
