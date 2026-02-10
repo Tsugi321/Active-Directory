@@ -17,7 +17,8 @@ The Detection Lab project aimed to establish a controlled environment for simula
 ## Steps
 1. Create a Network Diagram to plan out the structure of the lab environment
 
-<img width="959" height="806" alt="image" src="https://github.com/user-attachments/assets/a0d74d37-8f99-4832-8366-f472c7ccc0f9](https://github.com/Tsugi321/Active-Directory/blob/main/Screenshot%202026-02-10%20165157.png" />
+<img width="1011" height="809" alt="Screenshot 2026-02-10 165157" src="https://github.com/user-attachments/assets/fa5ead9b-8c5d-41a7-bb24-16eb3b4ded6d" />
+
 
 2. Download and install all necessary VM Systems
 
