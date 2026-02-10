@@ -21,6 +21,8 @@ The Detection Lab project aimed to establish a controlled environment for simula
 
 
 2. Download and install all necessary VM Systems
+3. 
+<img width="951" height="747" alt="Screenshot 2026-02-10 183533" src="https://github.com/user-attachments/assets/dac76541-4181-4b34-8d9f-a4bf901518b5" />
 
    2.5. Sudo apt-get update && Sudo apt-get upgrade -y on ubuntu server
 4. Set up a NAT Network with planned IP address and connect all VMs to that network
