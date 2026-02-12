@@ -89,8 +89,8 @@ The Detection Lab project aimed to establish a controlled environment for simula
 23. configure kali linux using the set ip address 
 (rightclick network icon > edit connections > select first profile > select cog icon > select ipv4 settings > change method to manual > add planned ip address > dns server 8.8.8.8 > save > disconect the internet > connect back to the same internet)
 
-24. update kali, make new directory and install crowbar
-(Open terminal on the desktop > sudo apt-get update && sudo apt-get upgrade -y > mkdir ad-project > sudo apt-get install -y crowbar
+24. update kali, make new directory and install hydra
+(Open terminal on the desktop > sudo apt-get update && sudo apt-get upgrade -y > mkdir ad-project > sudo apt-get install -y hydra
 
 25. access rockyou wordlist and move it to the new directory
 (cd /usr/share/wordlists/ > sudo gunzip rockyou.txt.gz > cp rockyou.txt ~/Desktop/*directory name* > cd ~/Desktop/*directory name*)
@@ -98,7 +98,38 @@ The Detection Lab project aimed to establish a controlled environment for simula
 26. Copy the first 20 lines into a new file and add the targeted password into the new file
 ("head -n 20 rockyou.txt > passwords.txt" > nano passwords.txt > add target password)
 
-27. On the target pc, enable Remote Desktop Protocol
+27. Make a new file called users.txt and add the targeted username
+(echo "username" > users.txt)
+
+28. On the target pc, enable Remote Desktop Protocol
 (search this pc > click properties > select advanced system settings > log in using ADministrator account > select remote tab > sellect allow remote connections to this computer > select users > add > add users > apply changes)
 
-28. 
+29. Begin a brute force attack on the target machine
+(hydra -L users.txt -P passwords.txt rdp://*target's IP*)
+
+30. Check data on splunk server
+Results: found 26 events under eventCode 4625 and 1 under 4624
+
+<img width="999" height="377" alt="Screenshot 2026-02-12 170648" src="https://github.com/user-attachments/assets/4b15c01f-52f9-4515-9e3c-5c5b5a3074e3" />
+
+<img width="880" height="458" alt="Screenshot 2026-02-12 170709" src="https://github.com/user-attachments/assets/fdacc0e8-7f48-46c9-9fe4-3f4bc7cec9c9" />
+
+Event code 4625 corrresponds to "An account failed to log on" and code 4624 corresnponds to "An account was successfully logged on"
+
+<img width="712" height="558" alt="Screenshot 2026-02-12 171205" src="https://github.com/user-attachments/assets/71ac958f-5872-4325-883a-bd056474b7f0" />
+
+Attacker machine name and ip is also shown
+
+32. Install Atomic Red Team (ART)
+(run powershell as administrator > Set-ExecutionPolicy Bypass CurrentUser > Y > Open windows security > Virus & threat protection > Manage settings > Add or remove exclusion > Add exclusion > folder > select C:\ drive> Go back to powershell and run IEX (IWR 'https://raw.githubusercontent.com/redcanaryco/invoke-atomicredteam/master/install-atomicredteam.ps1' -UseBasicParsing); > Install-AtomicRedTeam -getAtomics)
+
+33. (on powershell Invoke-AtomicTest T1136.001 (corresponds to create new local account)
+    
+<img width="1002" height="690" alt="Screenshot 2026-02-12 173022" src="https://github.com/user-attachments/assets/6a98ac9f-6e9d-4573-98f4-6237502b7b9c" />
+
+
+Results: 
+
+<img width="1003" height="547" alt="Screenshot 2026-02-12 173359" src="https://github.com/user-attachments/assets/8043c09f-2c4d-4db5-a30c-e26b240cf7e9" />
+
+Detected a new local user
