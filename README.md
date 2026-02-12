@@ -2,7 +2,7 @@
 
 ## Objective
 
-The Detection Lab project aimed to establish a realistic, enterprise‑style environment for simulating cyber attacks and analyzing defensive telemetry. By deploying Active Directory, configuring endpoint logging, and integrating Splunk as the SIEM, the lab provided a controlled space to generate, ingest, and investigate security events. This hands-on experience was designed to deepen understanding of network security, attack patterns, and defensive strategies.
+The Detection Lab project aimed to establish a realistic, enterprise‑style environment for simulating cyber attacks and analysing defensive telemetry. By deploying Active Directory, configuring endpoint logging, and integrating Splunk as the SIEM, the lab provided a controlled space to generate, ingest, and investigate security events. This hands-on experience was designed to deepen understanding of network security, attack patterns, and defensive strategies.
 
 ### Skills Learned
 
