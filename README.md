@@ -49,6 +49,8 @@ The Detection Lab project aimed to establish a realistic, enterprise‑style env
 4. Configure splunk server to the designated ip address by changing the .yaml file
 (sudo nano /etc/netplan/50-cloud-init.yaml > configure file to set designated ip address and gateway)
 
+<img width="320" height="178" alt="Screenshot 2026-02-12 180832" src="https://github.com/user-attachments/assets/e8260e1c-e819-4081-a6d9-cdf80c98ae31" />
+
 <img width="797" height="661" alt="Screenshot 2026-02-10 183854" src="https://github.com/user-attachments/assets/594cea97-85a7-47fb-b9d9-4fa0f9bcbd4d" />
 
 5. Install virtualbox packages, add a shared directory and add a new user to vbox
@@ -57,16 +59,16 @@ The Detection Lab project aimed to establish a realistic, enterprise‑style env
 6. Make a new directory and mount the shared directory to the newly created one
 (sudo mount -t vboxsf -o uid=1000,gid=1000 *shared directory* *new directory*
 
-7. move to the new directory and install splunk package
+7. Move to the new directory and install splunk package
 (cd *new directory*) (sudo dpkg -i splunk-*verions of splunk*)
 
 8. Set up splunk server by moving to splunk directory and change user to splunk to gain permissions
 (cd /opt/splunk) (sudo -u splunk bash)
 
-9. move to bin directory and run the installer
+9. Move to bin directory and run the installer
 (cd bin) (./splunk start)
 
-10. automate splunk server startup by changing back to default user and moving to bin directory
+10. Automate splunk server startup by changing back to default user and moving to bin directory
 (exit) (cd bin) (sudo ./splunk enable boot-start -user splunk)
 
 11. Configure target vm and windows server by installing splunk universal fowarder and sysmon
@@ -80,13 +82,11 @@ The Detection Lab project aimed to establish a realistic, enterprise‑style env
 
 14. Go to services, change Log On As to Local system and restart splunk universal forwarding
 
+15. Log into splunk server and create a new index called endpoint
 
-15. log into splunk server and create a new index called endpoint
+16. Activate splunk server by adding a new port (9997) to configure receiving setting
 
-16. activate splunk server by adding a new port (9997) to configure receiving setting
-
-
-17. install Active Directory Domain Services(ADDS) on the windows server
+17. Install Active Directory Domain Services(ADDS) on the windows server
 (Manage > Add roles and features > install Role-based or feature-based > Target server > select ADDS and add features > Install)
 
 18. Promote server to domain controller
@@ -95,7 +95,7 @@ The Detection Lab project aimed to establish a realistic, enterprise‑style env
 19. Create organisational units and add users
 (tools > active directory users and computers > right click the domain > new > organisational unit > add name > within the organisational unit rightclick > new > user > add name > add password)
 
-20. Cahnge DNS server on target PC
+20. Change DNS server on target PC
 (Rightclick network icon > open network & internet settings > change adapter options > rightclick internet connection > properties > double click ipv4 > change prefered DNS server to domain controller)
 
 21. Join target pc to the domain
@@ -103,13 +103,13 @@ The Detection Lab project aimed to establish a realistic, enterprise‑style env
 
 22. Restart target vm and log into newly made user
 
-23. configure kali linux using the set ip address 
+23. Configure kali linux using the set ip address 
 (rightclick network icon > edit connections > select first profile > select cog icon > select ipv4 settings > change method to manual > add planned ip address > dns server 8.8.8.8 > save > disconect the internet > connect back to the same internet)
 
-24. update kali, make new directory and install hydra
+24. Update kali, make new directory and install hydra
 (Open terminal on the desktop > sudo apt-get update && sudo apt-get upgrade -y > mkdir ad-project > sudo apt-get install -y hydra
 
-25. access rockyou wordlist and move it to the new directory
+25. Access rockyou wordlist and move it to the new directory
 (cd /usr/share/wordlists/ > sudo gunzip rockyou.txt.gz > cp rockyou.txt ~/Desktop/*directory name* > cd ~/Desktop/*directory name*)
 
 26. Copy the first 20 lines into a new file and add the targeted password into the new file
